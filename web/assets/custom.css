@@ -1,0 +1,12 @@
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+    display: block;
+    width: 300px;
+    height: 250px;
+}
+
+#pagination{
+
+    position: fixed;
+    width:100%;
+    bottom:0;
+}

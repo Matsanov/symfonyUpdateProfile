@@ -1,0 +1,53 @@
+{% include "header.html.twig" %}
+
+{{ form_start(form) }}
+
+<div class="signin-form">
+
+    <div class="col-md-6">
+
+        <form class="form-signin" action="{{ path('comment_upload', {id: imageId}) }}" method="post">
+
+            <fieldset>
+
+                <div id="legend">
+
+                    <legend class="text-center">Comment !</legend>
+
+                </div>
+
+                {{ form_errors(form) }}
+
+                <div class="form-group">
+
+                    <!-- Username -->
+
+                    <label class="control-label" for="comment_text">Comment:</label>
+
+                    <div class="controls">
+
+                        {{ form_widget(form.commentText,{'attr': {'novalidate': 'novalidate'}}) }}
+
+                    </div>
+
+                </div>
+
+            </fieldset>
+
+
+            {{ form_rest(form) }}
+        </form>
+
+        <a class="btn btn-info" href="{{ path('comments', {id: imageId}) }}">View Comments</a>
+
+    </div>
+
+</div>
+
+</div>
+
+{{ form_end(form) }}
+
+{% include "footer.html.twig" %}
+
+

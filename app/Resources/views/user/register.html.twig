@@ -1,0 +1,100 @@
+{% include "header.html.twig" %}
+
+{{ form_start(form) }}
+
+<div class="signin-form">
+
+    <div class="col-md-6">
+
+        <form class="form-signin" action="" method="post">
+
+            <fieldset>
+
+                <div id="legend">
+
+                    <legend class="text-center">Register</legend>
+
+                </div>
+
+                {{ form_errors(form) }}
+
+                <div class="form-group">
+
+                    <!-- Username -->
+
+                    <label class="control-label" for="username">Username</label>
+
+                    <div class="controls">
+
+                        {{ form_widget(form.username,{'attr': {'novalidate': 'novalidate'}}) }}
+
+                        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <!-- E-mail -->
+
+                    <label class="control-label" for="email">E-mail</label>
+
+                    <div class="controls">
+
+                        {{ form_widget(form.email,{'attr': {'novalidate': 'novalidate'}}) }}
+
+                        <p class="help-block">Please provide your E-mail</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <!-- Password-->
+
+                    <label class="control-label" for="password"></label>
+
+                    <div class="controls">
+
+
+                        <label class="control-label" for="email">Password</label>
+                        {{ form_widget(form.plainPassword.first,{'attr': {'novalidate': 'novalidate'}}) }}
+
+                        <label class="control-label" for="email">Repeat password</label>
+                        {{ form_widget(form.plainPassword.second,{'attr': {'novalidate': 'novalidate'}}) }}
+
+                        <p class="help-block">Password should be at least 8 characters, must contain at least 1
+                            number, 1 lowercase and 1 uppercase letter and 1 special character,</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <!-- Button -->
+                    <div class="controls">
+
+                        {{ form_widget(form.save, { 'label': 'Register' }) }}
+
+                    </div>
+
+                </div>
+
+            </fieldset>
+
+            {{ form_rest(form) }}
+        </form>
+
+    </div>
+
+</div>
+
+</div>
+
+{{ form_end(form) }}
+
+{% include "footer.html.twig" %}

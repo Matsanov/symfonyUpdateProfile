@@ -1,0 +1,30 @@
+{% include "header.html.twig" %}
+<h2>Comments for picture: </h2>
+
+<img class="thumbnail img-responsive"
+     src="{{ asset('uploads/images/' ~ image_name.name) }}"></a>
+
+<div class="col-md-6 text-center" id="with-bg">
+    <table style="width:100%; margin-top: 5px">
+
+        <tr>
+            <th style="text-align:center;">Username</th>
+            <th style="text-align:center;">Comment</th>
+        </tr>
+        <div class="row" id="alerts">
+            {% for comment in comments %}
+                <tr id="comment_<?= $comment['comment_id']; ?>">
+                    <td style="text-align:center;">{{ comment.username }}</td>
+                    <td style="text-align:center;">{{ comment.comment_text }}</td>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <td style="text-align:center; margin: 0px; padding: 0px"><a class="btn btn-info" class="btn btn-info"
+                                    href="{{ path('delete_comment', {id: comment.id, image_id: image_id}) }}">Delete Comment</a></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </div>
+    </table>
+    <a class="btn btn-info" class="btn btn-info" href="{{ path('comment_upload', {id: image_id}) }}">Comment</a>
+</div>
+
+{% include "footer.html.twig" %}

@@ -1,0 +1,31 @@
+{% include "admin/admin_header.html.twig" %}
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+
+
+<table id="table_id" class="display">
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Date Added</th>
+        <th>Comments count</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for user in userData %}
+    <tr>
+        <td>{{ user.username }}</td>
+        <td>{{ user.dateAdded }}</td>
+        <td>{{ user.comments_count }}</td>
+        <td>
+            <a class="btn btn-info" href= "{{ path('admin_user_images', {id: user.id}) }}">User Pictures</a>
+            <a class="btn btn-info" href="{{ path('admin_delete_user', {id: user.id}) }}">Delete User</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% include "admin/admin_footer.html.twig" %}
+
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>

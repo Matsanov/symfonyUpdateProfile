@@ -1,0 +1,25 @@
+{% include "header.html.twig" %}
+
+<table id="id_users_table" class="table table-striped">
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Images Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for user in allUsers %}
+    <tr>
+        <td>{{ user.username }}</td>
+        <td>{{ user.images_count }}</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+<div class="navigation text-center" id="pagination">
+    {{ knp_pagination_render(allUsers) }}
+</div>
+
+{% include "footer.html.twig" %}
